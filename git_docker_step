@@ -1,0 +1,50 @@
+--Git
+$ git init
+$ git branch -M main > check by use git status
+$ git remote add origin https://github.com/cardthp/ecommerce-shop.git
+
+$ git add .
+$ git commit -m "-feature :sparkless: first commit"
+$ git push origin main
+$ git push origin develop
+
+$ git checkout develop
+
+use sourcetree to 
+-create branch
+Git Flow > set Production:main / set Develop:develop
+-add feature
+Git Flow > New Feature
+-push feature (Fetch is without automatically merging)
+$ always cilck Fetch then Pull develop and Finish feature
+
+
+--Docker
+$ docker pull postgres:alpine
+$ docker run --name ecommerce_db_test -e POSTGRES_USER=thanaphat -e POSTGRES_PASSWORD=123456 -p 4444:5432 -d <container_id or container_name>
+
+$ docker exec -it ecommerce_db_test bash
+$ psql -U thanaphat
+$ \l
+$ CREATE DATABASE ecommerce_db_test
+
+
+--Migrate prepare script
+--ecommerce-shop_db just a name of create file seq
+$ migrate create -ext sql -dir db/migrations -seq ecommerce-shop_db
+--example : $ migrate -source file://path/to/migrations -database postgres://localhost:5432/database up 2
+$ migrate -source file://C:/Users/thana/OneDrive/Desktop/ecommerce-shop/pkg/databases/migrations -database 'postgres://thanaphat:123456@localhost:4444/ecommerce_db_test?sslmode=disable' -verbose up
+
+
+--GO
+go mod init github.com/cardthp/ecommerce-shop.git
+
+https://github.com/joho/godotenv
+--Godotenv > need for create env for screte key will not leak
+
+
+https://github.com/cosmtrek/air
+--install and $ air init
+
+--Air
+$ air -c .air.dev.toml
